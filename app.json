@@ -4,7 +4,7 @@
         "description": "Is a grass/poison-type Pokemon, this Pokemon generates a lot of poison through the huge kissing mouth",
         "ability": "Chlorophyll",
         "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/069.png",
-        "footprint": null,
+        "footprint": "https://static.wikia.nocookie.net/pokemon/images/0/01/069Bellsprout_Masters.png/revision/latest/scale-to-width-down/250?cb=20200930081558",
         "dexindex": "#0069",
         "type": "Grass",
         "subtype": "Poison",
