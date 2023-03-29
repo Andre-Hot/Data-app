@@ -32,4 +32,36 @@ h1 {
     margin: 0;
 }
 
+footer {
+    text-align: center;
+    background-color: #4CAF50;
+    margin: 0;
+    padding: 2em;
+}
+
+main {
+    background-color: #4CAF50;
+}
+
+.grid-container {
+    display: grid;
+    gap: 2em;
+    padding: 2em;
+}
+
+.grid-item:hover {
+    box-shadow: 0 5px 10px 0px green;
+}
+
+.grid-item img {
+    height: 200px;
+    width: 200px;
+    background-color: #4CAF50;
+}
+
+.grid-item {
+    background-color: aliceblue;
+
+}
+
 

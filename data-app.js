@@ -1,56 +1,68 @@
 window.addEventListener("load", initApp);
 
 async function initApp() {
-/*
-    const bellsprout = {
-
-        name: "Bellsprout",
-        description: "Is a grass/poison-type Pokemon",
-        ability: "Chlorophyll",
-        image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/069.png",
-        footprint: undefined,
-        dexindex: "#0069",
-        type: "Grass",
-        subtype: "Poison",
-        weaknesses: "Fire, Phsychic, Flying, Ice",
-        gender: "male, female",
-        weight: "8.8 lbs",
-        height: "2'04",
-        generation: "1",
-        spilversion: "Pokemon",
-        canEvolve: "true",
-        statsHP: "3",
-        statsAttack: "5",
-        statsDefence: "3",
-        statsSpecialAttack: "5",
-        statsSpecialDefence: "2",
-        statsSpeed: "3",
-
-
-    }
-*/
   
-
+  const pokemons = await getPokemon("app.json");
+    showPokemon(pokemons);
+  
     
 }
 
+async function getPokemon() {
+  const response = await fetch("https://github.com/Andre-Hot/Data-app/blob/main/app.json");
+  const data = await response.json();
+  console.log(data);
+  return data;
+}
 
 
-
+function showPokemons(pokemonList) {
+  for (const pokemon of pokemonList) {
+    showPokemon(pokemon);
+  }
+}
 
 
 function showPokemon(pokemon) {
-    document.querySelector().insertAdjacentHTML("beforeend"
+  document.querySelector("#pokemons").insertAdjacentHTML(
+    "beforeend",
     /*html*/
-    <h1>${pokemon.name}</h1>
-        <div id="picture">
-        <image src="${pokemon.image}"></image>
-         </div>
-    )
- }
+    <article class="grid-item">
+      <img src="${pokemon.image}"></img>
+      <h2>${pokemon.name}</h2>
+      <p>${pokemon.house}</p>
+      
+    </article>
+  );
 
-function showHouse() {}
+  document.querySelector("#pokemons article:last-child").addEventListener("click", pokemonClicked);
 
-function calcAge() {}
+  function pokemonClicked() {
+    showPokemonModal(pokemon);
+  }
+}
 
-function getDescription(){}
+function showPokemonModal(pokemon) {
+  console.log(pokemon);
+ document.querySelector("#dialog-title").textContent = `${pokemon.name}`;
+ document.querySelector("#ability").textContent = `Ability: ${pokemon.ability}`;
+ document.querySelector("#footprint").textContent = `Footprint: ${pokemon.footprint}`;
+ document.querySelector("#dexindex").textContent = `DexIndex: #0${pokemon.dexindex}`;
+ document.querySelector("#type").textContent = `Type: ${pokemon.type}`;
+ document.querySelector("#subtype").textContent = `Subtype: ${pokemon.subtype}`;
+ document.querySelector("#weaknesses").textContent = `Weakness: ${pokemon.weaknesses}`;
+ document.querySelector("#gender").textContent = `Gender: ${pokemon.gender}`;
+ document.querySelector("#weight").textContent = `Weight: ${pokemon.weight} gram`;
+ document.querySelector("#height").textContent = `Height: ${pokemon.height} meter`;
+ document.querySelector("#generation").textContent = `Generation ${pokemon.generation}`;
+ document.querySelector("#spilversion").textContent = `Spil: ${pokemon.spilversion}`;
+ document.querySelector("#evolve").textContent = `Evolve: ${pokemon.canEvolve}`;
+ document.querySelector("#health").textContent = `Health: ${pokemon.statsHP}`;
+ document.querySelector("#attack").textContent = `Attack: ${pokemon.statsAttack}`;
+ document.querySelector("#defence").textContent = `Defense: ${pokemon.statsDefence}`;
+ document.querySelector("#specialAttack").textContent = `Special Attack: ${pokemon.statsSpecialAttack}`;
+ document.querySelector("#specialDefence").textContent = `Special Defense: ${pokemon.statsSpecialDefence}`;
+ document.querySelector("#speed").textContent = `Speed: ${pokemon.statsSpeed}`;
+ document.querySelector("#pokemon-stats").showModal();
+
+}
