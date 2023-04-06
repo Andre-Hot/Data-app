@@ -6,7 +6,7 @@
         "ability": "Chlorophyll",
         "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/069.png",
         "footprint": "https://static.wikia.nocookie.net/pokemon/images/0/01/069Bellsprout_Masters.png/revision/latest/scale-to-width-down/250?cb=20200930081558",
-        "dexindex": "#0069",
+        "dexindex": 69,
         "type": "Grass",
         "subtype": "Poison",
         "weaknesses": "Fire, Phsychic, Flying, Ice",
